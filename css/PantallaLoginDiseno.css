@@ -1,0 +1,51 @@
+.tarjeta-pantalla {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.titulo-granja {
+  color: #2c3e50;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.formulario-login {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.etiqueta-nombre {
+  font-size: 24px;
+  color: #333333;
+  font-weight: bold;
+}
+
+.entrada-nombre {
+  padding: 15px;
+  font-size: 20px;
+  border: 3px solid #35883a;
+  border-radius: 10px;
+  width: 80%;
+  text-align: center;
+  outline: none;
+}
+
+.boton-comenzar {
+  background-color: #35883a;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.boton-comenzar:hover {
+  transform: scale(1.05);
+}
