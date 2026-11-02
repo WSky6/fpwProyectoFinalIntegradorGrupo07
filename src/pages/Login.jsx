@@ -1,20 +1,24 @@
 import { useState } from 'react'
-import '../css/PantallaLoginDiseno.css'
+import { useNavigate } from 'react-router-dom'
+import '../../css/PantallaLoginDiseno.css'
 
-export default function PantallaLogin({ setNombreJugador, setPantallaActiva }) {
+export default function Login({ setNombreJugador }) {
   const [nombreTemporal, setNombreTemporal] = useState('')
+  const navegar = useNavigate()
 
-  const manejarIngreso = () => {
+  const manejarIngreso = (e) => {
+    e.preventDefault()
+    
     if (nombreTemporal.trim() !== '') {
-      setNombreJugador(nombreTemporal)
-      setPantallaActiva(2)
+      if (setNombreJugador) setNombreJugador(nombreTemporal)
+      navegar("/juego_1") 
     }
   }
 
   return (
     <div className="tarjeta-pantalla">
       <h1 className="titulo-granja">¡Bienvenidos a la Granja!</h1>
-      <div className="formulario-login">
+      <form className="formulario-login" onSubmit={manejarIngreso}>
         <label className="etiqueta-nombre">¿Cómo te llamas?</label>
         <input 
           type="text" 
@@ -23,12 +27,12 @@ export default function PantallaLogin({ setNombreJugador, setPantallaActiva }) {
           onChange={(evento) => setNombreTemporal(evento.target.value)}
         />
         <button 
+          type="submit"
           className="boton-comenzar" 
-          onClick={manejarIngreso}
         >
           Comenzar
         </button>
-      </div>
+      </form>
     </div>
   )
 }

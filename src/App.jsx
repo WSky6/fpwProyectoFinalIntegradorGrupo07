@@ -1,25 +1,27 @@
 import { useState } from 'react'
-import PantallaLogin from './PantallaLogin.jsx'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Login from './pages/Login.jsx'
 
 function App() {
-  const [pantallaActiva, setPantallaActiva] = useState(1)
   const [nombreJugador, setNombreJugador] = useState('')
 
   return (
-    <div>
-      {pantallaActiva === 1 && (
-        <PantallaLogin 
-          setNombreJugador={setNombreJugador} 
-          setPantallaActiva={setPantallaActiva} 
+    <BrowserRouter>
+      <Routes>
+        <Route 
+          path="/" 
+          element={<Login setNombreJugador={setNombreJugador} />} 
         />
-      )}
-      
-      {pantallaActiva === 2 && (
-        <h1 style={{textAlign: 'center', marginTop: '50px'}}>
-          ¡Hola {nombreJugador}! Aquí irá el Juego 1
-        </h1>
-      )}
-    </div>
+        <Route 
+          path="/juego_1" 
+          element={
+            <h1 style={{textAlign: 'center', marginTop: '50px'}}>
+              ¡Hola {nombreJugador}! Aqui estara el juego 1.
+            </h1>
+          } 
+        />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
