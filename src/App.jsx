@@ -1,26 +1,15 @@
-import { useState } from 'react'
-import PantallaLogin from './PantallaLogin.jsx'
+import { Outlet } from "react-router-dom";
+import { Container } from "@mui/material";
 
-function App() {
-  const [pantallaActiva, setPantallaActiva] = useState(1)
-  const [nombreJugador, setNombreJugador] = useState('')
+const App = () => {
 
   return (
-    <div>
-      {pantallaActiva === 1 && (
-        <PantallaLogin 
-          setNombreJugador={setNombreJugador} 
-          setPantallaActiva={setPantallaActiva} 
-        />
-      )}
-      
-      {pantallaActiva === 2 && (
-        <h1 style={{textAlign: 'center', marginTop: '50px'}}>
-          ¡Hola {nombreJugador}! Aquí irá el Juego 1
-        </h1>
-      )}
-    </div>
+    <Container >
+      <Outlet />      
+    </Container>
+
   )
-}
+
+};
 
 export default App;
