@@ -133,8 +133,14 @@ const Juego2 = () => {
           Haz clic en el animal que NO pertenece a la granja
         </Typography>
 
-        <Grid container spacing={3} justifyContent="center" sx={{ my: 2 }}>
+        <Grid container spacing={3} sx={{ justifyContent: 'center', my: 2 }}>
           {ronda.opciones.map((opcion, index) => {
+            // Estilos dinámicos para acierto (verde) o error (rojo) como en el ejemplo
+            let backgroundColor = '#81c784'; // Verde por defecto para animales de granja
+            if (opcion.esIntruso && opcionSeleccionada !== null) {
+              backgroundColor = '#e57373'; // Rojo si es el intruso revelado
+            }
+
             return (
               <Grid item xs={12} sm={4} key={index}>
                 <Button
