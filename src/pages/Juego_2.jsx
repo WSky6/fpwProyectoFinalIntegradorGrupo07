@@ -69,7 +69,7 @@ const Juego2 = () => {
       setPuntosLocal(nuevosPuntos);
       setMensajeFeedback("¡Sacaste al intruso! La granja está a salvo. El niño gana 10 puntos.");
     } else {
-      setMensajeFeedback("Incorrecto. Ese sí es de la granja[cite: 4].");
+      setMensajeFeedback("Incorrecto. Ese sí es de la granja.");
     }
 
     // Espera 1.5 segundos para pasar a la siguiente ronda o finalizar
@@ -90,11 +90,11 @@ const Juego2 = () => {
     <Container maxWidth="md" sx={{ mt: 4, textAlign: 'center' }}>
       <Paper elevation={4} sx={{ p: 4, borderRadius: 3, backgroundColor: '#fffde7' }}>
         <Typography variant="h4" color="primary" fontWeight="bold" gutterBottom>
-          Juego 2: El Intruso de la Granja 🔍[cite: 4]
+          Juego 2: El Intruso de la Granja 🔍
         </Typography>
 
         <Typography variant="body1" color="textSecondary" sx={{ mb: 2 }}>
-          ¡Un animal que NO es de la granja se metió! Tenés que encontrarlo y sacarlo[cite: 4].
+          ¡Un animal que NO es de la granja se metió! Tenés que encontrarlo y sacarlo.
         </Typography>
 
         <Typography variant="h6" color="textSecondary" sx={{ mb: 3 }}>
@@ -102,7 +102,7 @@ const Juego2 = () => {
         </Typography>
 
         <Typography variant="h5" sx={{ my: 3, color: '#333', fontWeight: 'bold' }}>
-          Haz clic en el animal que NO pertenece a la granja[cite: 4]
+          Haz clic en el animal que NO pertenece a la granja
         </Typography>
 
         <Grid container spacing={3} justifyContent="center" sx={{ my: 2 }}>
@@ -137,7 +137,7 @@ const Juego2 = () => {
                   <b>{opcion.nombre}</b>
                   {opcionSeleccionada !== null && opcion.esIntruso && (
                     <Typography variant="caption" sx={{ color: '#b71c1c', fontWeight: 'bold', mt: 1 }}>
-                      ¡INTRUSO![cite: 4]
+                      ¡INTRUSO!
                     </Typography>
                   )}
                 </Button>
