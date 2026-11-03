@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../../css/PantallaLoginDiseno.css'
 
-export default function Login({ setNombreJugador }) {
+function Login({ setNombreJugador }) {
   const [nombreTemporal, setNombreTemporal] = useState('')
   const navegar = useNavigate()
 
@@ -36,3 +36,5 @@ export default function Login({ setNombreJugador }) {
     </div>
   )
 }
+
+export default Login;
