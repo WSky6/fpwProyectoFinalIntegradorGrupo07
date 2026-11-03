@@ -11,3 +11,9 @@
 ## Juego de granja donde se debe elegir que come el animal, guarda nombre de login y puntaje del mismo juego. (Max. 50)
 ## Archivos Creados: public/data/juego1.json, css/Juego01.css, components/Mensaje.jsx. - Modificado: pages/Juego_1.jsx, components/BotonOpcion, components/CartaAnimal.
 ## Uso IA: Si. Fue usada para corroborar la estructura y corregir errores. (Problemas en las referencias y uso de contexto.) Tipo de IA: Copilot.
+
+# Callahuara Abel Alex
+## Juego Granja 2 (Pantalla 3)
+## Juego donde se debe elegir que animal no pertenece a la Granja, guarda puntaje del mismo juego. (Max. 50)
+## Archivos Creados: public/data/juego2.json - Modificado: pages/Juego_2.jsx
+## Uso IA: Si. Fue usada para adaptar el codigo a la estrcutura de forma mas rapida y tambien para corregir errores  Tipo de IA: Gemini
