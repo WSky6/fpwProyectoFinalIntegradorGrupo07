@@ -12,6 +12,12 @@
 ## Archivos Creados: public/data/juego1.json, css/Juego01.css, components/Mensaje.jsx. - Modificado: pages/Juego_1.jsx, components/BotonOpcion, components/CartaAnimal.
 ## Uso IA: Si. Fue usada para corroborar la estructura y corregir errores. (Problemas en las referencias y uso de contexto.) Tipo de IA: Copilot.
 
+# Melani Isabel Silva
+## Inicio de sesion / Login
+## Pantalla en donde se pide el nombre al niño que ingrese a la pagina con un boton empezar
+## Archivos creadores : src/pages/Login.jsx - css/PantallaLOginDiseno.css
+## Uso de AI; Si, La use para arreglar errores y cambiar partes de la estructura del codigo. IA utilizada : Geminis
+
 
 # Melani Isabel Silva
 ## Inicio de sesion / Login
