@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { AutorizacionesContext } from "../context/JuegoContexto";
 
 import { obtenerJuego1 } from "../services/serviciosDeJuego";
-
 import CartaAnimal from "../components/CartaAnimal";
 import BotonOpcion from "../components/BotonOpcion";
 import Mensaje from "../components/Mensaje";
@@ -231,6 +230,6 @@ const Juego1 = () => {
 
     </div>
   );
-};
+}
 
 export default Juego1;

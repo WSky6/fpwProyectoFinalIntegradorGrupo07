@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "opciones": [
+      { "nombre": "Perro", "esIntruso": false, "emoji": "🐶" },
+      { "nombre": "Gato", "esIntruso": false, "emoji": "🐱" },
+      { "nombre": "León", "esIntruso": true, "emoji": "🦁" }
+    ]
+  },
+  {
+    "id": 2,
+    "opciones": [
+      { "nombre": "Vaca", "esIntruso": false, "emoji": "🐮" },
+      { "nombre": "Oveja", "esIntruso": false, "emoji": "🐑" },
+      { "nombre": "Cocodrilo", "esIntruso": true, "emoji": "🐊" }
+    ]
+  },
+  {
+    "id": 3,
+    "opciones": [
+      { "nombre": "Gallina", "esIntruso": false, "emoji": "🐔" },
+      { "nombre": "Chancho", "esIntruso": false, "emoji": "🐷" },
+      { "nombre": "Elefante", "esIntruso": true, "emoji": "🐘" }
+    ]
+  },
+  {
+    "id": 4,
+    "opciones": [
+      { "nombre": "Caballo", "esIntruso": false, "emoji": "🐴" },
+      { "nombre": "Vaca", "esIntruso": false, "emoji": "🐮" },
+      { "nombre": "Tiburón", "esIntruso": true, "emoji": "🦈" }
+    ]
+  },
+  {
+    "id": 5,
+    "opciones": [
+      { "nombre": "Oveja", "esIntruso": false, "emoji": "🐑" },
+      { "nombre": "Perro", "esIntruso": false, "emoji": "🐶" },
+      { "nombre": "Pingüino", "esIntruso": true, "emoji": "🐧" }
+    ]
+  }
+]
