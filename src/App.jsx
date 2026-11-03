@@ -1,38 +1,12 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
-import { Container } from '@mui/material'
-import Login from './pages/Login.jsx'
+import { Outlet } from "react-router-dom";
+import { Container } from "@mui/material";
 
-function App = () => {
-  const [nombreJugador, setNombreJugador] = useState('')
-
+const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          element={
-            <Container>
-              <Outlet />
-            </Container>
-          }
-        >
-          <Route
-            path="/"
-            element={<Login setNombreJugador={setNombreJugador} />}
-          />
+    <Container maxWidth="lg">
+      <Outlet />
+    </Container>
+  );
+};
 
-          <Route
-            path="/juego_1"
-            element={
-              <h1 style={{ textAlign: 'center', marginTop: '50px' }}>
-                ¡Hola {nombreJugador}! Aquí estará el Juego 1.
-              </h1>
-            }
-          />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  )
-}
-
-export default App
+export default App;

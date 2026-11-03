@@ -8,7 +8,6 @@ import { CssBaseline } from '@mui/material';
 import { RouterProvider } from 'react-router-dom';
 import { routes } from "./routes/routes";
 
-// Importa tu proveedor de contexto (ajusta la ruta si tu archivo se llama AutorizacionesContext o JuegoContext)
 import { ProveedorContext } from './context/JuegoContexto';
 
 createRoot(document.getElementById('root')).render(
