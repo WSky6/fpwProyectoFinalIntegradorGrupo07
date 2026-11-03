@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../../css/PantallaLoginDiseno.css'
 
-function Login({ setNombreJugador }) {
+const Login = ({ setNombreJugador }) => {
   const [nombreTemporal, setNombreTemporal] = useState('')
   const navegar = useNavigate()
 
