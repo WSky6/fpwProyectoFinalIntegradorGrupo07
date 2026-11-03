@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+<<<<<<< Updated upstream
 import '../../css/PantallaLoginDiseno.css'
+=======
+import '../../css/PantallaLoginDiseno.css';
+>>>>>>> Stashed changes
 
 const Login = ({ setNombreJugador }) => {
   const [nombreTemporal, setNombreTemporal] = useState('')
@@ -11,7 +15,12 @@ const Login = ({ setNombreJugador }) => {
     
     if (nombreTemporal.trim() !== '') {
       if (setNombreJugador) setNombreJugador(nombreTemporal)
+<<<<<<< Updated upstream
       navegar("/juego_1") 
+=======
+      // Le avisa al Router que cambie la URL
+      navegar("/juego-1") 
+>>>>>>> Stashed changes
     }
   }
 
