@@ -1,62 +1,63 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AutorizacionesContext } from '../context/JuegoContexto';
 import { Box, Typography, Button, Container, Grid, Paper, Alert } from '@mui/material';
-
-// Rondas exactas según la consigna del profesor
-const rondasJuego2 = [
-  {
-    id: 1,
-    opciones: [
-      { nombre: "Perro", esIntruso: false, emoji: "🐶" },
-      { nombre: "Gato", esIntruso: false, emoji: "🐱" },
-      { nombre: "León", esIntruso: true, emoji: "🦁" }
-    ]
-  },
-  {
-    id: 2,
-    opciones: [
-      { nombre: "Vaca", esIntruso: false, emoji: "🐮" },
-      { nombre: "Oveja", esIntruso: false, emoji: "🐑" },
-      { nombre: "Cocodrilo", esIntruso: true, emoji: "🐊" }
-    ]
-  },
-  {
-    id: 3,
-    opciones: [
-      { nombre: "Gallina", esIntruso: false, emoji: "🐔" },
-      { nombre: "Chancho", esIntruso: false, emoji: "🐷" },
-      { nombre: "Elefante", esIntruso: true, emoji: "🐘" }
-    ]
-  },
-  {
-    id: 4,
-    opciones: [
-      { nombre: "Caballo", esIntruso: false, emoji: "🐴" },
-      { nombre: "Vaca", esIntruso: false, emoji: "🐮" },
-      { nombre: "Tiburón", esIntruso: true, emoji: "🦈" }
-    ]
-  },
-  {
-    id: 5,
-    opciones: [
-      { nombre: "Oveja", esIntruso: false, emoji: "🐑" },
-      { nombre: "Perro", esIntruso: false, emoji: "🐶" },
-      { nombre: "Pingüino", esIntruso: true, emoji: "🐧" }
-    ]
-  }
-];
+import { obtenerJuego2 } from '../services/serviciosDeJuego'; // Asegúrate de importar el servicio
 
 const Juego2 = () => {
   const { nombre, guardarPuntajeJuego2 } = useContext(AutorizacionesContext);
   const navigate = useNavigate();
 
+  const [rondasJuego2, setRondasJuego2] = useState([]);
   const [rondaActual, setRondaActual] = useState(0);
   const [puntosLocal, setPuntosLocal] = useState(0);
   const [mensajeFeedback, setMensajeFeedback] = useState("");
   const [opcionSeleccionada, setOpcionSeleccionada] = useState(null);
 
-  const ronda = rondasJuego2[rondaActual];
+  const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState(false);
+  const [intentoCarga, setIntentoCarga] = useState(0);
+
+  useEffect(() => {
+    let activo = true;
+
+    const cargarRondas = async () => {
+      try {
+        setCargando(true);
+        setError(false);
+
+        const datos = await obtenerJuego2();
+
+        if (!Array.isArray(datos) || datos.length !== 5) {
+          throw new Error("Los datos del juego 2 no son válidos.");
+        }
+
+        if (activo) {
+          setRondasJuego2(datos);
+        }
+
+      } catch (error) {
+        console.error(error);
+        if (activo) {
+          setError(true);
+        }
+      } finally {
+        if (activo) {
+          setCargando(false);
+        }
+      }
+    };
+
+    cargarRondas();
+
+    return () => {
+      activo = false;
+    };
+  }, [intentoCarga]);
+
+  const ronda = useMemo(() => {
+    return rondasJuego2[rondaActual];
+  }, [rondasJuego2, rondaActual]);
 
   const seleccionarOpcion = (opcion, index) => {
     if (opcionSeleccionada !== null) return; // Evita doble clic
@@ -86,6 +87,33 @@ const Juego2 = () => {
     }, 1500);
   };
 
+  if (cargando) {
+    return (
+      <Container maxWidth="md" sx={{ mt: 8, textAlign: 'center' }}>
+        <Typography variant="h5" color="primary">Buscando al intruso...</Typography>
+        <Typography variant="body1" sx={{ mt: 2 }}>¡Preparando los animales de la granja! 🔍</Typography>
+      </Container>
+    );
+  }
+
+  if (error || !ronda) {
+    return (
+      <Container maxWidth="md" sx={{ mt: 8, textAlign: 'center' }}>
+        <Paper elevation={3} sx={{ p: 4, backgroundColor: '#ffebee' }}>
+          <Typography variant="h5" color="error" gutterBottom>¡Ups! Algo salió mal.</Typography>
+          <Typography variant="body1" sx={{ mb: 3 }}>No pudimos cargar los datos del Juego 2.</Typography>
+          <Button 
+            variant="contained" 
+            color="primary"
+            onClick={() => setIntentoCarga((anterior) => anterior + 1)}
+          >
+            Intentar nuevamente
+          </Button>
+        </Paper>
+      </Container>
+    );
+  }
+
   return (
     <Container maxWidth="md" sx={{ mt: 4, textAlign: 'center' }}>
       <Paper elevation={4} sx={{ p: 4, borderRadius: 3, backgroundColor: '#fffde7' }}>
@@ -107,12 +135,6 @@ const Juego2 = () => {
 
         <Grid container spacing={3} justifyContent="center" sx={{ my: 2 }}>
           {ronda.opciones.map((opcion, index) => {
-            // Estilos dinámicos para acierto (verde) o error (rojo) como en el ejemplo
-            let backgroundColor = '#81c784'; // Verde por defecto para animales de granja
-            if (opcion.esIntruso && opcionSeleccionada !== null) {
-              backgroundColor = '#e57373'; // Rojo si es el intruso revelado
-            }
-
             return (
               <Grid item xs={12} sm={4} key={index}>
                 <Button
@@ -163,7 +185,6 @@ const Juego2 = () => {
       </Paper>
     </Container>
   );
-  
-}
+};
 
 export default Juego2;
