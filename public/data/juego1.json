@@ -1,0 +1,63 @@
+
+[
+  {
+    "id": 1,
+    "animal": "Vaca",
+    "imagen": "🐮",
+    "descripcion": "La vaca está esperando su comida.",
+    "opciones": [
+      "Pasto",
+      "Carne",
+      "Banana"
+    ],
+    "respuestaCorrecta": "Pasto"
+  },
+  {
+    "id": 2,
+    "animal": "Gallina",
+    "imagen": "🐔",
+    "descripcion": "La gallina tiene hambre.",
+    "opciones": [
+      "Maíz",
+      "Pasto",
+      "Pescado"
+    ],
+    "respuestaCorrecta": "Maíz"
+  },
+  {
+    "id": 3,
+    "animal": "Chancho",
+    "imagen": "🐷",
+    "descripcion": "El chancho busca algo para comer.",
+    "opciones": [
+      "Todo lo que encuentra",
+      "Solo Pasto",
+      "Solo Carne"
+    ],
+    "respuestaCorrecta": "Todo lo que encuentra"
+  },
+  {
+    "id": 4,
+    "animal": "Oveja",
+    "imagen": "🐑",
+    "descripcion": "La oveja está lista para comer.",
+    "opciones": [
+      "Pasto",
+      "Hamburguesa",
+      "Pizza"
+    ],
+    "respuestaCorrecta": "Pasto"
+  },
+  {
+    "id": 5,
+    "animal": "Caballo",
+    "imagen": "🐴",
+    "descripcion": "El caballo quiere comer algo rico.",
+    "opciones": [
+      "Pasto y Zanahoria",
+      "Pollo",
+      "Helado"
+    ],
+    "respuestaCorrecta": "Pasto y Zanahoria"
+    }
+  ]
