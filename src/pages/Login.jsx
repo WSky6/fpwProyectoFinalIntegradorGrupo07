@@ -1,68 +1,73 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { AutorizacionesContext } from '../context/JuegoContexto';
 
 import '../../css/PantallaLoginDiseno.css';
 
 const Login = () => {
-  const [nombreTemporal, setNombreTemporal] = useState('');
+
+  const [usuario, setUsuario] = useState('');
+  const [password, setPassword] = useState('');
 
   const navegar = useNavigate();
-
-  const { guardarNombre } = useContext(
-    AutorizacionesContext
-  );
+  const { guardarNombre } = useContext(AutorizacionesContext);
 
   const manejarIngreso = (e) => {
     e.preventDefault();
 
-    const nombre = nombreTemporal.trim();
+    const userLimpio = usuario.trim();
+    const passLimpio = password.trim();
 
-    if (nombre !== '') {
-      guardarNombre(nombre);
+    if (userLimpio !== '' && passLimpio !== '') {
 
+      guardarNombre(userLimpio); 
       navegar('/juego-1');
+      
+    } else {
+      alert('Por favor, ingresá tu usuario y contraseña.');
     }
   };
 
   return (
-    <div className="tarjeta-pantalla">
+    <div className="contenedor-login">
+      
+      <div className="columna-formulario">
+        <form className="formulario-login" onSubmit={manejarIngreso}>
+          <h2 className="titulo-formulario">Ingreso al Sistema</h2>
 
-      <h1 className="titulo-granja">
-        ¡Bienvenidos a la Granja!
-      </h1>
+          <label htmlFor="usuario" className="etiqueta-input">Usuario</label>
+          <input
+            id="usuario"
+            type="text"
+            className="entrada-datos"
+            value={usuario}
+            onChange={(e) => setUsuario(e.target.value)}
+            placeholder="Ej: alumno1"
+          />
 
-      <form
-        className="formulario-login"
-        onSubmit={manejarIngreso}
-      >
-        <label
-          htmlFor="nombre"
-          className="etiqueta-nombre"
-        >
-          ¿Cómo te llamas?
-        </label>
+          <label htmlFor="password" className="etiqueta-input">Contraseña</label>
+          <input
+            id="password"
+            type="password"
+            className="entrada-datos"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Escribí tu contraseña"
+          />
 
-        <input
-          id="nombre"
-          type="text"
-          className="entrada-nombre"
-          value={nombreTemporal}
-          onChange={(evento) =>
-            setNombreTemporal(evento.target.value)
-          }
-          placeholder="Escribí tu nombre"
-        />
+          <button type="submit" className="boton-comenzar">
+            Entrar a la Granja
+          </button>
+        </form>
+      </div>
 
-        <button
-          type="submit"
-          className="boton-comenzar"
-        >
-          Comenzar
-        </button>
-
-      </form>
+      <div className="columna-texto">
+        <h1 className="titulo-granja">¡Bienvenidos a la Granja!</h1>
+        <p className="descripcion-granja">
+          Descubrí cómo funciona el mundo de la Granja. Revisa tus animales, 
+          cuida de ellos y aprendé divirtiéndote.
+        </p>
+      </div>
 
     </div>
   );
