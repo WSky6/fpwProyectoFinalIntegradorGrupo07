@@ -23,7 +23,7 @@ const Login = () => {
 
       if (usuarioEncontrado) {
         guardarNombre(usuarioEncontrado);
-        navegar('/juego-1');
+        navegar('/Juego_1');
       } else {
         alert('Usuario o contraseña incorrectos. ¡Revisá tus datos!');
       }
